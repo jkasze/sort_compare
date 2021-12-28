@@ -27,6 +27,13 @@ int main(void){
     }
     printf("\n");
     // 4. 快速排序
+    int arr4[] = {9,3,2,6,8,5,4,1};
+    quick_sort(arr4, 0, 7);
+    printf("4. 快速排序:");
+    for (int i = 0; i < 8; i++){
+        printf("%d ",arr4[i]);
+    }
+    printf("\n");
     // 5. 选择排序
     int arr5[] = {9,3,2,6,8,5,4,1};
     bubble_sort(arr5, 8);

@@ -45,8 +45,36 @@ void bubble_sort(int s[], int n) {
         }
     }
 }
-// 4. 快速排序
-//void quick_sort(int s[], int n);
+// 4. 快速排序 O(N*logN)
+int partition(int s[], int l, int r) {
+    if (l > r) {
+        return -1;
+    }
+    if (l == r) {
+        return l;
+    }
+    int lessEqual = l - 1;
+    int index = l;
+    while (index < r) {
+        if (s[index] < s[r]) {
+            swap(s, index, ++lessEqual);
+        }
+        index++;
+    }
+    swap(s, ++lessEqual, r);
+    return lessEqual;
+}
+
+void quick_sort(int s[], int l, int r) {
+    if(s == NULL || r - l < 1){
+        return;
+    }
+    if(l < r){
+        int m = partition(s, l, r);
+        quick_sort(s, l, m - 1);
+        quick_sort(s, m + 1, r);
+    }
+}
 // 5. 选择排序 O(N^2)
 void selection_sort(int s[], int n) {
     if(s == NULL || n < 2) {
