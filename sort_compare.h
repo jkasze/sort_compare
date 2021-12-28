@@ -4,7 +4,7 @@
 #include <stddef.h> /* NULL */
 
 // 1. 插入排序
-void insertion_sort(int s[], int n);
+void insertion_sort(int s[],int n);
 // 2. 希尔排序
 void shell_sort(int s[], int n);
 // 3. 冒泡排序
@@ -16,6 +16,6 @@ void selection_sort(int s[], int n);
 // 6. 堆排序
 void heap_sort(int s[], int n);
 // 7. 归并排序
-void merge_sort(int s[], int n);
+void merge_sort(int s[], int L, int R);
 
 #endif /* SORT_COMPARE_H__ */

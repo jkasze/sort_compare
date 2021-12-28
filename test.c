@@ -4,9 +4,9 @@
 int main(void){
     int arr1[] = {9,3,2,6,8,5,4,1};
     // 1. 插入排序
-    insertion_sort(arr1,8);
+    insertion_sort(arr1,sizeof(arr1)/sizeof(arr1[0]));
     printf("1. 插入排序:");
-    for (int i = 0; i < 8; i++){
+    for (int i = 0; i < sizeof(arr1)/sizeof(arr1[0]); i++){
         printf("%d ",arr1[i]);
     }
     printf("\n");
@@ -38,5 +38,12 @@ int main(void){
     }
     printf("\n");
     // 7. 归并排序
+    int arr7[] = {9,3,2,6,8,5,4,1};
+    merge_sort(arr7, 0, 7);
+    printf("7. 归并排序:");
+    for (int i = 0; i < 8; i++){
+        printf("%d ",arr7[i]);
+    }
+    printf("\n");
     return 0;
 }

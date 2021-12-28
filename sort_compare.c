@@ -1,8 +1,8 @@
 #include "sort_compare.h"
-
-// 1. 插入排序
-void insertion_sort(int s[], int n){
-    if (s == NULL || n < 2) {
+#include <stdio.h>
+// 1. 插入排序 O(N^2)
+void insertion_sort(int s[],int n){
+    if(s == NULL || n < n){
         return;
     }
 
@@ -14,7 +14,7 @@ void insertion_sort(int s[], int n){
 }
 // 2. 希尔排序
 //void shell_sort(int s[], int n);
-// 3. 冒泡排序
+// 3. 冒泡排序 O(N^2)
 void bubble_sort(int s[], int n) {
     if (s == NULL || n < 2) {
         return;
@@ -29,7 +29,7 @@ void bubble_sort(int s[], int n) {
 }
 // 4. 快速排序
 //void quick_sort(int s[], int n);
-// 5. 选择排序
+// 5. 选择排序 O(N^2)
 void selection_sort(int s[], int n) {
     if(s == NULL || n < 2) {
         return;
@@ -42,7 +42,7 @@ void selection_sort(int s[], int n) {
         swap(s, i, minIndex);
     }
 }
-// 6. 堆排序
+// 6. 堆排序 O(N*logN)
 void heap_sort(int s[], int n) {
     if(s == NULL || n < 2) {
         return;
@@ -59,6 +59,36 @@ void heap_sort(int s[], int n) {
         swap(s, 0, --heap_size);    // O(1)
     }
 }
-// 7. 归并排序
-//void merge_sort(int s[], int n);
+// 7. 归并排序 O(N*logN)
+void merge(int s[], int L, int M, int R);
+
+void merge_sort(int s[], int L, int R){
+    if(s == NULL || L == R){
+        return;
+    }
+    int mid = L + ((R -L) >> 1);
+    merge_sort(s, L, mid);
+    merge_sort(s, mid + 1, R);
+    merge(s, L, mid, R);
+}
+
+void merge(int s[], int L, int M, int R) {
+    int help[R - L + 1];
+    int i = 0;
+    int p1 = L;
+    int p2 = M + 1;
+    while (p1 <= M && p2 <= R) {
+        help[i++] = s[p1] <= s[p2] ? s[p1++] : s[p2++];
+    }
+
+    while (p1 <= M) {
+        help[i++] = s[p1++];
+    }
+    while(p2 <= R) {
+        help[i++] = s[p2++];
+    }
+    for(i = 0;i < sizeof(help) / sizeof(help[0]); i++) {
+        s[L + i] = help[i];
+    }
+}
 
