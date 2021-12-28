@@ -1,6 +1,6 @@
 objects = build/test.o build/sort_compare.o build/utils.o build/heap.o
 test : test.o sort_compare.o utils.o heap.o
-	gcc -o build/test $(objects)
+	gcc -o test $(objects)
 
 sort_compare.o : sort_compare.c sort_compare.h
 	gcc -o build/sort_compare.o -c sort_compare.c
