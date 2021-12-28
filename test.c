@@ -11,6 +11,13 @@ int main(void){
     }
     printf("\n");
     // 2. 希尔排序
+    int arr2[] = {9,3,2,6,8,5,4,1};
+    bubble_sort(arr2, 8);
+    printf("3. 希尔排序:");
+    for (int i = 0; i < 8; i++){
+        printf("%d ",arr2[i]);
+    }
+    printf("\n");
     // 3. 冒泡排序
     int arr3[] = {9,3,2,6,8,5,4,1};
     bubble_sort(arr3, 8);

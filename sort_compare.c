@@ -2,7 +2,7 @@
 #include <stdio.h>
 // 1. 插入排序 O(N^2)
 void insertion_sort(int s[],int n){
-    if(s == NULL || n < n){
+    if(s == NULL || n < 2){
         return;
     }
 
@@ -12,8 +12,26 @@ void insertion_sort(int s[],int n){
         }
     }
 }
-// 2. 希尔排序
-//void shell_sort(int s[], int n);
+// 2. 希尔排序 O(N^1.5)
+void shell_sort(int s[], int n){
+    if(s == NULL || n < 2) {
+        return;
+    }
+    int gap = 1, i, j;
+    int temp;
+    while(gap < n / 3) {
+        gap = gap * 3 + 1;
+    }
+    for(; gap > 0; gap /= 3) {
+        for(i = gap; i < n; i++){
+            temp = s[i];
+            for(j = i - gap; j >= 0 && s[j] > temp; j -= gap) {
+                s[j + gap] = s[j];
+            }
+            s[j + gap] = temp;
+        }   
+    }
+}
 // 3. 冒泡排序 O(N^2)
 void bubble_sort(int s[], int n) {
     if (s == NULL || n < 2) {
