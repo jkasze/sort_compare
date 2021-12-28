@@ -43,7 +43,22 @@ void selection_sort(int s[], int n) {
     }
 }
 // 6. 堆排序
-//void heap_sort(int s[], int n);
+void heap_sort(int s[], int n) {
+    if(s == NULL || n < 2) {
+        return;
+    }
+    // O(N)
+    for (int i = n - 1; i >= 0; i--) {
+        heapify(s, i, n);
+    }
+    int heap_size = n;
+    swap(s, 0, --heap_size);
+    // O(N*logN)
+    while(heap_size > 0) {  // O(N)
+        heapify(s, 0, heap_size);   // O(logN)
+        swap(s, 0, --heap_size);    // O(1)
+    }
+}
 // 7. 归并排序
 //void merge_sort(int s[], int n);
 

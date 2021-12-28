@@ -30,6 +30,13 @@ int main(void){
     printf("\n");
     void selection_sort(int s[], int n);
     // 6. 堆排序
+    int arr6[] = {9,3,2,6,8,5,4,1};
+    bubble_sort(arr6, 8);
+    printf("6. 堆排序  :");
+    for (int i = 0; i < 8; i++){
+        printf("%d ",arr6[i]);
+    }
+    printf("\n");
     // 7. 归并排序
     return 0;
 }
