@@ -2,9 +2,12 @@
 #define SORT_COMPARE_H__
 #include "utils/utils.h"
 #include <stddef.h> /* NULL */
+#include <stdlib.h> /* rand();srand(); */
+#include <time.h>   /* time() */
+#include <stdio.h>  /* printf() */
 
 // 1. 插入排序
-void insertion_sort(int s[],int n);
+int insertion_sort(int s[],int n);
 // 2. 希尔排序
 void shell_sort(int s[], int n);
 // 3. 冒泡排序

@@ -1,63 +1,35 @@
-#include <stdio.h>
 #include "sort_compare.h"
 
 int main(void){
-    int arr1[] = {9,3,2,6,8,5,4,1};
-    // 1. 插入排序
-    insertion_sort(arr1,sizeof(arr1)/sizeof(arr1[0]));
-    printf("1. 插入排序:");
-    for (int i = 0; i < sizeof(arr1)/sizeof(arr1[0]); i++){
-        printf("%d ",arr1[i]);
+    srand((unsigned) time(NULL));
+    int M = 0;
+    while(M < 5 || M > 20){
+        M = rand();
     }
-    printf("\n");
-    // 2. 希尔排序
-    int arr2[] = {9,3,2,6,8,5,4,1};
-    bubble_sort(arr2, 8);
-    printf("3. 希尔排序:");
-    for (int i = 0; i < 8; i++){
-        printf("%d ",arr2[i]);
+    srand((unsigned) time(NULL));
+    int N = 0;
+    while(N < 10000 || N > 100000){
+        N = rand();
     }
-    printf("\n");
-    // 3. 冒泡排序
-    int arr3[] = {9,3,2,6,8,5,4,1};
-    bubble_sort(arr3, 8);
-    printf("3. 冒泡排序:");
-    for (int i = 0; i < 8; i++){
-        printf("%d ",arr3[i]);
+    printf("M: %d\n",M);
+    printf("N: %d\n",N);
+    int numbers[M][N];
+    for(int i = 0;i < M; i++){
+        for(int j = 0;j < N; j++){
+            numbers[i][j] = rand();
+        }
     }
-    printf("\n");
-    // 4. 快速排序
-    int arr4[] = {9,3,2,6,8,5,4,1};
-    quick_sort(arr4, 0, 7);
-    printf("4. 快速排序:");
-    for (int i = 0; i < 8; i++){
-        printf("%d ",arr4[i]);
+    
+    long counts[M];
+    for(int i = 0;i < M; i++){
+        counts[i] = insertion_sort(numbers[i],sizeof(numbers[0]) / sizeof(numbers[0][0]));
     }
-    printf("\n");
-    // 5. 选择排序
-    int arr5[] = {9,3,2,6,8,5,4,1};
-    bubble_sort(arr5, 8);
-    printf("5. 选择排序:");
-    for (int i = 0; i < 8; i++){
-        printf("%d ",arr5[i]);
+    long average = 0;
+    for(int i = 0;i < M; i++){
+        printf("[count:%d]:%ld\n", i, counts[i]);
+        average += counts[i] / M;
     }
-    printf("\n");
-    void selection_sort(int s[], int n);
-    // 6. 堆排序
-    int arr6[] = {9,3,2,6,8,5,4,1};
-    bubble_sort(arr6, 8);
-    printf("6. 堆排序  :");
-    for (int i = 0; i < 8; i++){
-        printf("%d ",arr6[i]);
-    }
-    printf("\n");
-    // 7. 归并排序
-    int arr7[] = {9,3,2,6,8,5,4,1};
-    merge_sort(arr7, 0, 7);
-    printf("7. 归并排序:");
-    for (int i = 0; i < 8; i++){
-        printf("%d ",arr7[i]);
-    }
-    printf("\n");
+    printf("[1.插入排序]:%ld\n", average);
+    
     return 0;
 }

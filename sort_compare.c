@@ -1,16 +1,22 @@
 #include "sort_compare.h"
 #include <stdio.h>
 // 1. 插入排序 O(N^2)
-void insertion_sort(int s[],int n){
+int insertion_sort(int s[],int n){
+    int count = 0;
     if(s == NULL || n < 2){
-        return;
+        count += 1;
+        return count;
     }
 
     for(int i = 1; i < n; i++) {
         for(int j = i - 1; j >= 0 && s[j] > s[j + 1]; j--) {
+            count += 2;
             swap(s, j, j + 1);
+            count += 1;
         }
+        count += 1;
     }
+    return count;
 }
 // 2. 希尔排序 O(N^1.5)
 void shell_sort(int s[], int n){
