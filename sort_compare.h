@@ -6,6 +6,11 @@
 #include <time.h>   /* time() */
 #include <stdio.h>  /* printf() */
 
+#define M_MAX 20
+#define M_MIN 5
+#define N_MIN 10000
+#define N_MAX 100000
+
 // 1. 插入排序
 int insertion_sort(int s[],int n);
 // 2. 希尔排序

@@ -3,15 +3,15 @@
 int main(void){
     srand((unsigned) time(NULL));
     int M = 0;
-    while(M < 5 || M > 20){
+    while(M < M_MIN || M > M_MAX){
         M = rand();
     }
     srand((unsigned) time(NULL));
     int N = 0;
-    while(N < 10000 || N > 100000){
+    while(N < N_MIN || N > N_MAX){
         N = rand();
     }
-    printf("M: %d\n",M);
+    printf("M: %d ",M);
     printf("N: %d\n",N);
     int numbers[M][N];
     for(int i = 0;i < M; i++){
