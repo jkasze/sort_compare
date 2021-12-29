@@ -48,11 +48,17 @@ mingw32-make
 make后会将可执行文件生成在build目录下，选择test运行。
 
 ```shell
+mkdir build
+
+cd build
+
 ./build/test
 ```
 ### Windows
 mingw32-make后会将exe文件生成在build目录下，在windows环境下需要切换进该目录运行test.exe文件。
 ```shell
+md build 
+
 cd build
 
 test.exe
