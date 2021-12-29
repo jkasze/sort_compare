@@ -30,6 +30,7 @@ int main(void){
     while(N < N_MIN || N > N_MAX){
         N = rand();
     }
+
     printf("M: %d N: %d\n",M, N);
 
     // 全局
@@ -77,7 +78,7 @@ int main(void){
             sfastest = sorts[k];
         } else if(faster >= res_compare[k]){
             faster = res_compare[k];
-            sfastest = sorts[k];
+            sfaster = sorts[k];
         }
     }
     printf("[最好的两个算法]:\n%s 比较次数:%ld\n%s 比较次数:%ld\n",sfastest,fastest,sfaster,faster);
