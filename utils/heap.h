@@ -1,3 +1,3 @@
 #include "utils.h"
-int heap_insert(int s[], int index, int count);
-int heapify(int s[], int index, int heap_size, int count);
+long heap_insert(int s[], int index, long count);
+long heapify(int s[], int index, int heap_size, long count);

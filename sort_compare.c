@@ -1,8 +1,8 @@
 #include "sort_compare.h"
 
 // 1. 插入排序 O(N^2)
-int insertion_sort(int s[],int n){
-    int count = 0;
+long insertion_sort(int s[],int n){
+    long count = 0;
     if(s == NULL || n < 2){
         count += 2;
         return count;
@@ -19,8 +19,8 @@ int insertion_sort(int s[],int n){
     return count;
 }
 // 2. 希尔排序 O(N^1.5)
-int shell_sort(int s[], int n){
-    int count = 0;
+long shell_sort(int s[], int n){
+    long count = 0;
     if(s == NULL || n < 2) {
         count += 2;
         return count;
@@ -47,8 +47,8 @@ int shell_sort(int s[], int n){
     return count;
 }
 // 3. 冒泡排序 O(N^2)
-int bubble_sort(int s[], int n) {
-    int count = 0;
+long bubble_sort(int s[], int n) {
+    long count = 0;
     if (s == NULL || n < 2) {
         count += 1;
         return count;
@@ -66,11 +66,11 @@ int bubble_sort(int s[], int n) {
     return count;
 }
 // 4. 快速排序 O(N*logN)
-int partition(int s[], int l, int r, int *count);
-void quick_sort_(int s[], int l, int r,int *count);
+int partition(int s[], int l, int r, long *count);
+void quick_sort_(int s[], int l, int r,long *count);
 
-int quick_sort(int s[], int n){
-    int *count = malloc(sizeof(int));
+long quick_sort(int s[], int n){
+    long *count = malloc(sizeof(long));
     *count = 0;
     if(s == NULL || n < 2){
         *count += 2;
@@ -79,7 +79,7 @@ int quick_sort(int s[], int n){
     quick_sort_(s, 0, n - 1, count);
     return *count;
 }
-void quick_sort_(int s[], int l, int r,int* count) {
+void quick_sort_(int s[], int l, int r,long* count) {
     if(l < r){
         *count += 1;
         int m = partition(s, l, r, count);
@@ -87,7 +87,7 @@ void quick_sort_(int s[], int l, int r,int* count) {
         quick_sort_(s, m + 1, r, count);
     }
 }
-int partition(int s[], int l, int r,int *count) {
+int partition(int s[], int l, int r,long *count) {
     if (l > r) {
         *count += 1;
         return -1;
@@ -113,8 +113,8 @@ int partition(int s[], int l, int r,int *count) {
 }
 
 // 5. 选择排序 O(N^2)
-int selection_sort(int s[], int n) {
-    int count = 0;
+long selection_sort(int s[], int n) {
+    long count = 0;
     if(s == NULL || n < 2) {
         count += 2;
         return count;
@@ -133,8 +133,8 @@ int selection_sort(int s[], int n) {
     return count;
 }
 // 6. 堆排序 O(N*logN)
-int heap_sort(int s[], int n) {
-    int count = 0;
+long heap_sort(int s[], int n) {
+    long count = 0;
     if(s == NULL || n < 2) {
         count += 2;
         return count;
@@ -155,10 +155,10 @@ int heap_sort(int s[], int n) {
     return count;
 }
 // 7. 归并排序 O(N*logN)
-void merge(int s[], int L, int M, int R, int* count);
-void merge_sort_(int s[], int L, int R, int* count);
-int merge_sort(int s[], int n) {
-    int *count = malloc(sizeof(int));
+void merge(int s[], int L, int M, int R, long *count);
+void merge_sort_(int s[], int L, int R, long *count);
+long merge_sort(int s[], int n) {
+    long *count = malloc(sizeof(long));
     *count = 0;
     if(s == NULL || n < 2){
         *count += 2;
@@ -167,7 +167,7 @@ int merge_sort(int s[], int n) {
     merge_sort_(s, 0 ,n - 1, count);
     return *count;
 }
-void merge_sort_(int s[], int L, int R, int* count){
+void merge_sort_(int s[], int L, int R, long* count){
     if (L == R) { 
         *count += 1;
 		return;
@@ -178,7 +178,7 @@ void merge_sort_(int s[], int L, int R, int* count){
     merge(s, L, mid, R, count);
 }
 
-void merge(int s[], int L, int M, int R, int* count) {
+void merge(int s[], int L, int M, int R, long* count) {
     int help[R - L + 1];
     int i = 0;
     int p1 = L;

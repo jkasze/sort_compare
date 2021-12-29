@@ -1,5 +1,5 @@
 #include "sort_compare.h"
-int (*sort_fn[])(int s[], int n) = {
+long (*sort_fn[])(int s[], int n) = {
     insertion_sort,
     shell_sort,
     bubble_sort,

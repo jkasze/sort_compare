@@ -1,7 +1,7 @@
 #include "heap.h"
 
 // up
-int heap_insert(int s[], int index,int count) {
+long heap_insert(int s[], int index,long count) {
     while(s[index] > s[(index - 1)/ 2]){      
         swap(s, index, (index - 1) / 2);
         index = (index - 1) /2 ;
@@ -11,7 +11,7 @@ int heap_insert(int s[], int index,int count) {
 }
 
 // down
-int heapify(int s[], int index, int heap_size,int count) {
+long heapify(int s[], int index, int heap_size,long count) {
     int left = index * 2 + 1;
     while(left < heap_size) {
         int largest = left + 1 < heap_size && s[left + 1] > s[left] ? left + 1 : left;
