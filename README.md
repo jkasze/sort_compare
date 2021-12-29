@@ -17,9 +17,11 @@
 
 ## 安装
 
-这个项目使用[gcc](https://gcc.gnu.org/)和[make](https://www.gnu.org/software/make/)，确保你安装了它们。
+
 
 ### Linux
+
+这个项目使用[gcc](https://gcc.gnu.org/)和[make](https://www.gnu.org/software/make/)，确保你安装了它们。
 
 ```shell
 git clone https://github.com/jkasze/sort_compare
@@ -29,12 +31,31 @@ cd sort_compare
 make
 ```
 
-## 示例
+### Windows
+在windows环境下需要使用[TDM-GCC](https://jmeubank.github.io/tdm-gcc/)，确保你安装了它们，并正确配置了系统变量。
 
+
+```shell
+git clone https://github.com/jkasze/sort_compare
+
+cd sort_compare
+
+mingw32-make
+```
+
+## 示例
+### Linux
 make后会将可执行文件生成在build目录下，选择test运行。
 
 ```shell
 ./build/test
+```
+### Windows
+mingw32-make后会将exe文件生成在build目录下，在windows环境下需要切换进该目录运行test.exe文件。
+```shell
+cd build
+
+test.exe
 ```
 
 ## License
