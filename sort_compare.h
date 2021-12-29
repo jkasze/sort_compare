@@ -2,9 +2,11 @@
 #define SORT_COMPARE_H__
 #include "utils/utils.h"
 #include <stddef.h> /* NULL */
-#include <stdlib.h> /* rand();srand(); */
+#include <stdlib.h> /* rand();srand();malloc();qsort(); */
+#include <string.h> /* memcpy() */
 #include <time.h>   /* time() */
 #include <stdio.h>  /* printf() */
+#include <assert.h>
 
 #define M_MAX 20
 #define M_MIN 5
@@ -14,16 +16,18 @@
 // 1. 插入排序
 int insertion_sort(int s[],int n);
 // 2. 希尔排序
-void shell_sort(int s[], int n);
+int shell_sort(int s[], int n);
 // 3. 冒泡排序
-void bubble_sort(int s[], int n);
+int bubble_sort(int s[], int n);
 // 4. 快速排序
-void quick_sort(int s[], int l, int r);
+int quick_sort(int s[], int n);
 // 5. 选择排序
-void selection_sort(int s[], int n);
+int selection_sort(int s[], int n);
 // 6. 堆排序
-void heap_sort(int s[], int n);
+int heap_sort(int s[], int n);
 // 7. 归并排序
-void merge_sort(int s[], int L, int R);
+int merge_sort(int s[], int n);
 
+
+long sort_count(int k);
 #endif /* SORT_COMPARE_H__ */
